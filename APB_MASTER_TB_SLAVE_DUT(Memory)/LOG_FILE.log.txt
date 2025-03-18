@@ -1,0 +1,966 @@
+[2025-03-18 14:57:24 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.1d '-timescale' '1ns/1ns' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
+Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 10:57:24 on Mar 18,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.1d -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 10:57:24 on Mar 18,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.1d/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.1d Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.1d Built-in)
+-- Compiling module apb_mem
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.1d Built-in)
+-- Importing package apb_package
+-- Compiling interface apb_interface
+-- Compiling package apb_package
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_dpi.cc:35:
+/usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_hdl.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_hdl.c:97:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   97 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.1d/src/dpi/uvm_hdl.c:79:20: note: length computed here
+   79 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 10:57:26 on Mar 18,2025, Elapsed time: 0:00:02
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 10:57:26 on Mar 18,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	tb_top
+
+Analyzing design...
+-- Loading module tb_top
+-- Loading package questa_uvm_pkg
+-- Loading interface apb_interface
+-- Loading module apb_mem
+Optimizing 8 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.1d Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package apb_package(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing interface apb_interface(fast__2)
+-- Optimizing module apb_mem(fast)
+-- Optimizing module tb_top(fast)
+-- Optimizing interface apb_interface(fast)
+Optimized design name is qrun_opt
+End time: 10:57:31 on Mar 18,2025, Elapsed time: 0:00:05
+Errors: 0, Warnings: 1
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 10:57:31 on Mar 18,2025
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.apb_interface(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.apb_package(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.apb_interface(fast__2)
+# Loading work.apb_mem(fast)
+# Loading /tmp/unknown@2941181a0144_dpi_52/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_base_test...
+# ** Warning: (vsim-8556) On evaluating the expression 'binsof(PSEL1) intersect{ value_list }' inside the select expression of Bin 'ig_bins' of Cross 'PSEL1xPWRITE' in Covergroup instance '\/apb_package::apb_fun_cov::apb_cg ', no matching bins were found. The binsof expression will result in an empty set.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# ** Warning: (vsim-8560) On evaluating the select expression of Cross bin 'PSEL1xPWRITE.ig_bins' in Covergroup instance '\/apb_package::apb_fun_cov::apb_cg ', the bin is found to be empty since no cross products are selected.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# ** Warning: (vsim-8556) On evaluating the expression 'binsof(PSEL1) intersect{ value_list }' inside the select expression of Bin 'ig_bins' of Cross 'PSEL1xPWRITExPADDR' in Covergroup instance '\/apb_package::apb_fun_cov::apb_cg ', no matching bins were found. The binsof expression will result in an empty set.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# ** Warning: (vsim-8560) On evaluating the select expression of Cross bin 'PSEL1xPWRITExPADDR.ig_bins' in Covergroup instance '\/apb_package::apb_fun_cov::apb_cg ', the bin is found to be empty since no cross products are selected.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               apb_base_test           -     @472 
+#   env                      apb_environment         -     @496 
+#     agnt                   apb_agent               -     @503 
+#       drv                  apb_driver              -     @525 
+#         rsp_port           uvm_analysis_port       -     @540 
+#         seq_item_port      uvm_seq_item_pull_port  -     @532 
+#       fc                   apb_fun_cov             -     @657 
+#         analysis_imp       uvm_analysis_imp        -     @664 
+#       mon                  apb_monitor             -     @518 
+#         ap                 uvm_analysis_port       -     @678 
+#       seqr                 uvm_sequencer           -     @548 
+#         rsp_export         uvm_analysis_export     -     @555 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @649 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     scb                    apb_scoreboard          -     @510 
+#       ap_exp               uvm_analysis_imp        -     @706 
+#       rm                   apb_reference_model     -     @695 
+# --------------------------------------------------------------
+# 
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               apb_base_test           -     @472 
+#   env                      apb_environment         -     @496 
+#     agnt                   apb_agent               -     @503 
+#       drv                  apb_driver              -     @525 
+#         rsp_port           uvm_analysis_port       -     @540 
+#         seq_item_port      uvm_seq_item_pull_port  -     @532 
+#       fc                   apb_fun_cov             -     @657 
+#         analysis_imp       uvm_analysis_imp        -     @664 
+#       mon                  apb_monitor             -     @518 
+#         ap                 uvm_analysis_port       -     @678 
+#       seqr                 uvm_sequencer           -     @548 
+#         rsp_export         uvm_analysis_export     -     @555 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @649 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     scb                    apb_scoreboard          -     @510 
+#       ap_exp               uvm_analysis_imp        -     @706 
+#       rm                   apb_reference_model     -     @695 
+# --------------------------------------------------------------
+# 
+# UVM_INFO apb_base_test.sv(126) @ 0: uvm_test_top [apb_base_test_run_phase] Started Running the Test
+# UVM_INFO apb_scoreboard.sv(64) @ 15: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 1, Feature ID: 5
+# Input to DUT: PWRITE = 0, PRESETn = 0, PSEL1 = 0, PWDATA = '{}, PADDR = '{}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# Expected Packet: Packet ID: 1, Feature ID: 5
+# Input to DUT: PWRITE = 0, PRESETn = 0, PSEL1 = 0, PWDATA = '{}, PADDR = '{}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# UVM_INFO apb_random_sequence.sv(75) @ 15: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 2, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{3749120396}, PADDR = '{2}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_WARNING apb_interface.sv(104) @ 25: reporter [INTF] PENABLE NOT DEASSERTED 1 CLK AFTER PREADY
+# UVM_WARNING apb_interface.sv(110) @ 25: reporter [INTF] PENABLE GETTING DEASSERTED WITHOUT PREADY BEING ASSERTED
+# PADDR is 00000002 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 45 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 65: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 2, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{3749120396}, PADDR = '{2}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 2, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{3749120396}, PADDR = '{2}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =0
+# UVM_INFO apb_random_sequence.sv(75) @ 65: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 3, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1106385856}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000000d and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 115 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 135: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 3, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1106385856}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 3, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1106385856}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =1
+# UVM_INFO apb_random_sequence.sv(75) @ 135: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 4, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1513467761}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 175: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 4, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1513467761}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 4, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1513467761}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =2
+# UVM_INFO apb_random_sequence.sv(75) @ 175: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 5, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{2625084072, 3534809851}, PADDR = '{11, 17}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 275: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 5, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2625084072, 3534809851}, PADDR = '{11, 17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 5, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2625084072, 3534809851}, PADDR = '{11, 17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =3
+# UVM_INFO apb_random_sequence.sv(75) @ 275: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 6, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1726279031, 3982134941, 292250795}, PADDR = '{27, 27, 4}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000001b and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 305 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000001b and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 335 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 00000004 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 365 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 385: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 6, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1726279031, 3982134941, 292250795}, PADDR = '{27, 27, 4}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 6, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1726279031, 3982134941, 292250795}, PADDR = '{27, 27, 4}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =4
+# UVM_INFO apb_random_sequence.sv(75) @ 385: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 7, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1378740216, 2809470609}, PADDR = '{26, 31}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000001a and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 425 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000001f and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 465 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 485: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 7, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1378740216, 2809470609}, PADDR = '{26, 31}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 7, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1378740216, 2809470609}, PADDR = '{26, 31}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =5
+# UVM_INFO apb_random_sequence.sv(75) @ 485: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 8, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{2481445254}, PADDR = '{28}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000001c and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 535 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 555: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 8, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2481445254}, PADDR = '{28}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 8, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2481445254}, PADDR = '{28}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =6
+# UVM_INFO apb_random_sequence.sv(75) @ 555: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 9, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{3196806748, 1762974211, 3567002055}, PADDR = '{21, 18, 27}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000015 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 595 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 00000012 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 635 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000001b and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 675 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 695: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 9, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{3196806748, 1762974211, 3567002055}, PADDR = '{21, 18, 27}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 9, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{3196806748, 1762974211, 3567002055}, PADDR = '{21, 18, 27}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =7
+# UVM_INFO apb_random_sequence.sv(75) @ 695: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 10, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{939646722}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000000d and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 735 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 755: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 10, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{939646722}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 10, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{939646722}, PADDR = '{13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =8
+# UVM_INFO apb_random_sequence.sv(75) @ 755: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 11, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1736756056}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 805: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 11, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1736756056}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 11, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1736756056}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =9
+# UVM_INFO apb_random_sequence.sv(75) @ 805: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 12, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{3112592132}, PADDR = '{9}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 845: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 12, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3112592132}, PADDR = '{9}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 12, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3112592132}, PADDR = '{9}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =10
+# UVM_INFO apb_random_sequence.sv(75) @ 845: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 13, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{208625160, 4071676800, 3659620484}, PADDR = '{14, 11, 11}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000000e and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 865 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 925: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 13, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{208625160, 4071676800, 3659620484}, PADDR = '{14, 11, 11}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:2625084072, 2:2625084072 }, PSLVERR = 0
+# Expected Packet: Packet ID: 13, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{208625160, 4071676800, 3659620484}, PADDR = '{14, 11, 11}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:2625084072, 2:2625084072 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =11
+# UVM_INFO apb_random_sequence.sv(75) @ 925: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 14, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1696030092}, PADDR = '{17}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 965: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 14, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1696030092}, PADDR = '{17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 14, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1696030092}, PADDR = '{17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =12
+# UVM_INFO apb_random_sequence.sv(75) @ 965: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 15, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{910063677, 4235889753}, PADDR = '{6, 12}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000006 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1015 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000000c and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1065 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1085: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 15, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{910063677, 4235889753}, PADDR = '{6, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 15, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{910063677, 4235889753}, PADDR = '{6, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =13
+# UVM_INFO apb_random_sequence.sv(75) @ 1085: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 16, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1325568255, 2207912571}, PADDR = '{23, 15}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000017 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1135 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000000f and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1185 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1205: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 16, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1325568255, 2207912571}, PADDR = '{23, 15}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 16, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1325568255, 2207912571}, PADDR = '{23, 15}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =14
+# UVM_INFO apb_random_sequence.sv(75) @ 1205: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 17, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{658123639}, PADDR = '{11}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 1255: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 17, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{658123639}, PADDR = '{11}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2625084072 }, PSLVERR = 0
+# Expected Packet: Packet ID: 17, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{658123639}, PADDR = '{11}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2625084072 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =15
+# UVM_INFO apb_random_sequence.sv(75) @ 1255: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 18, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{2545766087}, PADDR = '{15}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 0000000f and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1275 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1295: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 18, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2545766087}, PADDR = '{15}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 18, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2545766087}, PADDR = '{15}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =16
+# UVM_INFO apb_random_sequence.sv(75) @ 1295: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 19, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1759895965, 2250129264, 96510897}, PADDR = '{23, 6, 10}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000017 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1335 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 00000006 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1375 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 0000000a and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1415 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1435: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 19, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1759895965, 2250129264, 96510897}, PADDR = '{23, 6, 10}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 19, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1759895965, 2250129264, 96510897}, PADDR = '{23, 6, 10}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =17
+# UVM_INFO apb_random_sequence.sv(75) @ 1435: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 20, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{2948961593, 1006376374, 2089028720}, PADDR = '{25, 18, 3}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 1545: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 20, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2948961593, 1006376374, 2089028720}, PADDR = '{25, 18, 3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 20, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2948961593, 1006376374, 2089028720}, PADDR = '{25, 18, 3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =18
+# UVM_INFO apb_random_sequence.sv(75) @ 1545: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 21, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1275319363, 895488686}, PADDR = '{16, 30}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000010 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1585 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1645: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 21, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1275319363, 895488686}, PADDR = '{16, 30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:1736756056 }, PSLVERR = 0
+# Expected Packet: Packet ID: 21, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1275319363, 895488686}, PADDR = '{16, 30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:1736756056 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =19
+# UVM_INFO apb_random_sequence.sv(75) @ 1645: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 22, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{2176799464}, PADDR = '{8}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 1695: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 22, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2176799464}, PADDR = '{8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 22, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2176799464}, PADDR = '{8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =20
+# UVM_INFO apb_random_sequence.sv(75) @ 1695: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 23, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1895309821, 1284399991}, PADDR = '{24, 12}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 1795: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 23, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1895309821, 1284399991}, PADDR = '{24, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 23, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1895309821, 1284399991}, PADDR = '{24, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =21
+# UVM_INFO apb_random_sequence.sv(75) @ 1795: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 24, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{799402672, 1736559312, 1109853711}, PADDR = '{3, 16, 19}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000010 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1875 ns  Scope: tb_top.dut File: design.sv Line: 76
+# PADDR is 00000013 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 1915 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 1935: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 24, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{799402672, 1736559312, 1109853711}, PADDR = '{3, 16, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2089028720, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 24, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{799402672, 1736559312, 1109853711}, PADDR = '{3, 16, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2089028720, 1:4294967295, 2:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =22
+# UVM_INFO apb_random_sequence.sv(75) @ 1935: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 25, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1386342483}, PADDR = '{19}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 1985: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 25, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1386342483}, PADDR = '{19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 25, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1386342483}, PADDR = '{19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =23
+# UVM_INFO apb_random_sequence.sv(75) @ 1985: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 26, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{3248436492, 2078229095}, PADDR = '{2, 6}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2065: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 26, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3248436492, 2078229095}, PADDR = '{2, 6}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 26, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3248436492, 2078229095}, PADDR = '{2, 6}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =24
+# UVM_INFO apb_random_sequence.sv(75) @ 2065: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 27, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1475106544, 3396509217, 629652025}, PADDR = '{21, 3, 2}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000015 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 2115 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 2235: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 27, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1475106544, 3396509217, 629652025}, PADDR = '{21, 3, 2}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:2089028720, 2:3248436492 }, PSLVERR = 0
+# Expected Packet: Packet ID: 27, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1475106544, 3396509217, 629652025}, PADDR = '{21, 3, 2}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:2089028720, 2:3248436492 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =25
+# UVM_INFO apb_random_sequence.sv(75) @ 2235: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 28, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{855362401}, PADDR = '{6}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2305: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 28, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{855362401}, PADDR = '{6}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 28, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{855362401}, PADDR = '{6}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =26
+# UVM_INFO apb_random_sequence.sv(75) @ 2305: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 29, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{4112866522}, PADDR = '{5}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000005 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 2345 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 2365: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 29, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{4112866522}, PADDR = '{5}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# Expected Packet: Packet ID: 29, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{4112866522}, PADDR = '{5}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =27
+# UVM_INFO apb_random_sequence.sv(75) @ 2365: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 30, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1818551528, 2489025003, 4166512288}, PADDR = '{27, 17, 13}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2445: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 30, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1818551528, 2489025003, 4166512288}, PADDR = '{27, 17, 13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 30, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1818551528, 2489025003, 4166512288}, PADDR = '{27, 17, 13}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =28
+# UVM_INFO apb_random_sequence.sv(75) @ 2445: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 31, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{131554095}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2495: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 31, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{131554095}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:1513467761 }, PSLVERR = 0
+# Expected Packet: Packet ID: 31, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{131554095}, PADDR = '{7}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:1513467761 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =29
+# UVM_INFO apb_random_sequence.sv(75) @ 2495: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 32, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1867270168}, PADDR = '{18}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2565: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 32, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1867270168}, PADDR = '{18}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 32, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1867270168}, PADDR = '{18}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =30
+# UVM_INFO apb_random_sequence.sv(75) @ 2565: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 33, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1041127344, 1178913057, 161411660}, PADDR = '{31, 22, 22}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2645: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 33, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1041127344, 1178913057, 161411660}, PADDR = '{31, 22, 22}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 33, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1041127344, 1178913057, 161411660}, PADDR = '{31, 22, 22}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =31
+# UVM_INFO apb_random_sequence.sv(75) @ 2645: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 34, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1704580707}, PADDR = '{24}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2715: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 34, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1704580707}, PADDR = '{24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:1895309821 }, PSLVERR = 0
+# Expected Packet: Packet ID: 34, Feature ID: 3
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1704580707}, PADDR = '{24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:1895309821 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =32
+# UVM_INFO apb_random_sequence.sv(75) @ 2715: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 35, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1550904487, 315031680, 1718265187}, PADDR = '{31, 6, 4}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2825: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 35, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1550904487, 315031680, 1718265187}, PADDR = '{31, 6, 4}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 35, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1550904487, 315031680, 1718265187}, PADDR = '{31, 6, 4}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =33
+# UVM_INFO apb_random_sequence.sv(75) @ 2825: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 36, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{2384118786}, PADDR = '{26}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2865: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 36, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2384118786}, PADDR = '{26}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 36, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2384118786}, PADDR = '{26}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =34
+# UVM_INFO apb_random_sequence.sv(75) @ 2865: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 37, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1373495845}, PADDR = '{3}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 2935: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 37, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1373495845}, PADDR = '{3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 37, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1373495845}, PADDR = '{3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =35
+# UVM_INFO apb_random_sequence.sv(75) @ 2935: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 38, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1126236446, 3275902028, 3685721911}, PADDR = '{15, 5, 19}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3105: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 38, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1126236446, 3275902028, 3685721911}, PADDR = '{15, 5, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 38, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1126236446, 3275902028, 3685721911}, PADDR = '{15, 5, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =36
+# UVM_INFO apb_random_sequence.sv(75) @ 3105: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 39, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{3373585120, 3388298340, 3185587395}, PADDR = '{1082799051, 2351665491, 1503984235}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# ** Error: Memory Address more than limits
+#    Time: 3155 ns  Scope: tb_top.dut File: design.sv Line: 65
+# ** Error: Memory Address more than limits
+#    Time: 3205 ns  Scope: tb_top.dut File: design.sv Line: 65
+# ** Error: Memory Address more than limits
+#    Time: 3255 ns  Scope: tb_top.dut File: design.sv Line: 65
+# ** Error: (vsim-8566) Illegal default state bin at sample value=1082799051 was hit. The bin counter for the bin '\/apb_package::apb_fun_cov::apb_cg .PADDR.il_paddr' is 1.
+#    Time: 3275 ns  Iteration: 4  Region: /uvm_pkg::uvm_task_phase::execute
+# ** Error: (vsim-8566) Illegal default state bin at sample value=2351665491 was hit. The bin counter for the bin '\/apb_package::apb_fun_cov::apb_cg .PADDR.il_paddr' is 2.
+#    Time: 3275 ns  Iteration: 4  Region: /uvm_pkg::uvm_task_phase::execute
+# ** Error: (vsim-8566) Illegal default state bin at sample value=1503984235 was hit. The bin counter for the bin '\/apb_package::apb_fun_cov::apb_cg .PADDR.il_paddr' is 3.
+#    Time: 3275 ns  Iteration: 4  Region: /uvm_pkg::uvm_task_phase::execute
+# UVM_INFO apb_scoreboard.sv(64) @ 3275: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 39, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3373585120, 3388298340, 3185587395}, PADDR = '{1082799051, 2351665491, 1503984235}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 1
+# Expected Packet: Packet ID: 39, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3373585120, 3388298340, 3185587395}, PADDR = '{1082799051, 2351665491, 1503984235}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 1
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =37
+# UVM_INFO apb_random_sequence.sv(75) @ 3275: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 40, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{82239218, 3871911811}, PADDR = '{19, 5}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3335: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 40, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{82239218, 3871911811}, PADDR = '{19, 5}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:3275902028 }, PSLVERR = 0
+# Expected Packet: Packet ID: 40, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{82239218, 3871911811}, PADDR = '{19, 5}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:3275902028 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =38
+# UVM_INFO apb_random_sequence.sv(75) @ 3335: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 41, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{3015895682}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3385: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 41, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3015895682}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 41, Feature ID: 1
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3015895682}, PADDR = '{30}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =39
+# UVM_INFO apb_random_sequence.sv(75) @ 3385: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 42, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{2399396323, 4153173908}, PADDR = '{13, 17}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3465: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 42, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2399396323, 4153173908}, PADDR = '{13, 17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 42, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{2399396323, 4153173908}, PADDR = '{13, 17}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =40
+# UVM_INFO apb_random_sequence.sv(75) @ 3465: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 43, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1252958141, 2336921346, 3049838571}, PADDR = '{25, 24, 12}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3635: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 43, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1252958141, 2336921346, 3049838571}, PADDR = '{25, 24, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2948961593, 1:1895309821, 2:1284399991 }, PSLVERR = 0
+# Expected Packet: Packet ID: 43, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1252958141, 2336921346, 3049838571}, PADDR = '{25, 24, 12}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:2948961593, 1:1895309821, 2:1284399991 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =41
+# UVM_INFO apb_random_sequence.sv(75) @ 3635: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 44, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{305726929, 3287640164}, PADDR = '{17, 25}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3735: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 44, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{305726929, 3287640164}, PADDR = '{17, 25}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 44, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{305726929, 3287640164}, PADDR = '{17, 25}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =42
+# UVM_INFO apb_random_sequence.sv(75) @ 3735: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 45, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{3415167752, 2190155678}, PADDR = '{2, 3}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 3795: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 45, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3415167752, 2190155678}, PADDR = '{2, 3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 45, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{3415167752, 2190155678}, PADDR = '{2, 3}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =43
+# UVM_INFO apb_random_sequence.sv(75) @ 3795: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 46, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{2241861304, 2897364157}, PADDR = '{20, 24}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000014 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 3835 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 3895: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 46, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2241861304, 2897364157}, PADDR = '{20, 24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:1895309821 }, PSLVERR = 0
+# Expected Packet: Packet ID: 46, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{2241861304, 2897364157}, PADDR = '{20, 24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:1895309821 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =44
+# UVM_INFO apb_random_sequence.sv(75) @ 3895: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 47, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{758530384, 3641355822}, PADDR = '{6, 8}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 4015: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 47, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{758530384, 3641355822}, PADDR = '{6, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:315031680, 1:2176799464 }, PSLVERR = 0
+# Expected Packet: Packet ID: 47, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{758530384, 3641355822}, PADDR = '{6, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:315031680, 1:2176799464 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =45
+# UVM_INFO apb_random_sequence.sv(75) @ 4015: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 48, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1799213975, 2450696188, 2571342794}, PADDR = '{21, 6, 19}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# PADDR is 00000015 and content is ffffffff
+# ** Error: Reading data from unwritten address
+#    Time: 4065 ns  Scope: tb_top.dut File: design.sv Line: 76
+# UVM_INFO apb_scoreboard.sv(64) @ 4185: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 48, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1799213975, 2450696188, 2571342794}, PADDR = '{21, 6, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:315031680, 2:3685721911 }, PSLVERR = 0
+# Expected Packet: Packet ID: 48, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1799213975, 2450696188, 2571342794}, PADDR = '{21, 6, 19}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:4294967295, 1:315031680, 2:3685721911 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =46
+# UVM_INFO apb_random_sequence.sv(75) @ 4185: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 49, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 0, PWDATA = '{1765010626, 1990772334, 3175081022}, PADDR = '{27, 25, 24}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 4265: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 49, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1765010626, 1990772334, 3175081022}, PADDR = '{27, 25, 24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# Expected Packet: Packet ID: 49, Feature ID: 2
+# Input to DUT: PWRITE = 1, PRESETn = 1, PSEL1 = 1, PWDATA = '{1765010626, 1990772334, 3175081022}, PADDR = '{27, 25, 24}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:0, 1:0, 2:0 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =47
+# UVM_INFO apb_random_sequence.sv(75) @ 4265: uvm_test_top.env.agnt.seqr@@apb_rand_seq [apb_rand_seq] Packet ID: 50, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 0, PWDATA = '{1069232210, 1389129791, 289496655}, PADDR = '{19, 11, 8}
+# OUPUT from DUT: PREADY = 0, PRDATA = '{ }, PSLVERR = 0
+# UVM_INFO apb_scoreboard.sv(64) @ 4345: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 50, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1069232210, 1389129791, 289496655}, PADDR = '{19, 11, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:2625084072, 2:2176799464 }, PSLVERR = 0
+# Expected Packet: Packet ID: 50, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1069232210, 1389129791, 289496655}, PADDR = '{19, 11, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:2625084072, 2:2176799464 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# Number of Iteration completed =48
+# UVM_INFO apb_base_test.sv(144) @ 4445: uvm_test_top [apb_base_test_run_phase] Ended Running the Test
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 4445: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_scoreboard.sv(64) @ 4445: uvm_test_top.env.scb [SCB] Actual Packet: Packet ID: 50, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1069232210, 1389129791, 289496655}, PADDR = '{19, 11, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:2625084072, 2:2176799464 }, PSLVERR = 0
+# Expected Packet: Packet ID: 50, Feature ID: 4
+# Input to DUT: PWRITE = 0, PRESETn = 1, PSEL1 = 1, PWDATA = '{1069232210, 1389129791, 289496655}, PADDR = '{19, 11, 8}
+# OUPUT from DUT: PREADY = 1, PRDATA = '{0:3685721911, 1:2625084072, 2:2176799464 }, PSLVERR = 0
+# PACKET Status -> PACKET_MATCHED
+# 
+# **************APB Scoreboard comparison Summary***************
+# 
+# Number of successful comparisons = 51,Number of Unsuccessful comparisons = 0
+# 
+# -----------------------------------------------------------------
+# 
+# UVM_INFO apb_base_test.sv(158) @ 4445: uvm_test_top [apb_base_test_report_phase] Started.
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]                                                     
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]          _______  _______  _______  _______         
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |       ||   _   ||       ||       |        
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |    _  ||  |_|  ||  _____||  _____|        
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |   |_| ||       || |_____ | |_____         
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |    ___||       ||_____  ||_____  |        
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |   |    |   _   | _____| | _____| |        
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]         |___|    |__| |__||_______||_______|        
+# UVM_INFO @ 4445: uvm_test_top [uvm_test_top]                                                     
+# UVM_INFO apb_base_test.sv(196) @ 4445: uvm_test_top [apb_base_test_report_phase] Ended.
+# UVM_INFO apb_base_test.sv(206) @ 4445: uvm_test_top [apb_base_test_final_phase] Started.
+# UVM_INFO apb_base_test.sv(209) @ 4445: uvm_test_top [apb_base_test_final_phase] Ended.
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  121
+# UVM_WARNING :    2
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [INTF]     2
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCB]    51
+# [TEST_DONE]     1
+# [UVMTOP]     2
+# [apb_base_test_final_phase]     2
+# [apb_base_test_report_phase]     2
+# [apb_base_test_run_phase]     2
+# [apb_rand_seq]    49
+# [uvm_test_top]     9
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 4445 ns  Iteration: 54  Instance: /tb_top
+# End time: 10:57:32 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 34, Warnings: 4
+End time: 10:57:32 on Mar 18,2025, Elapsed time: 0:00:08
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:  34, Warnings:   4
+  Totals: Errors:  34, Warnings:   5
+Creating result.zip...
+  adding: modelsim.ini (deflated 18%)
+  adding: qrun.log (deflated 89%)
+  adding: qrun.out/ (stored 0%)
+  adding: qrun.out/history (deflated 17%)
+  adding: qrun.out/work/ (stored 0%)
+  adding: qrun.out/work/_lib.qdb (deflated 97%)
+  adding: qrun.out/work/_temp/ (stored 0%)
+  adding: qrun.out/work/_lib1_0.qtl (deflated 24%)
+  adding: qrun.out/work/_dpi/ (stored 0%)
+  adding: qrun.out/work/_dpi/auto_compile@/ (stored 0%)
+  adding: qrun.out/work/_dpi/auto_compile@/linux_x86_64_gcc-10.3.0/ (stored 0%)
+  adding: qrun.out/work/_dpi/auto_compile@/linux_x86_64_gcc-10.3.0/uvm_dpi.d (deflated 77%)
+  adding: qrun.out/work/_dpi/auto_compile@/linux_x86_64_gcc-10.3.0/uvm_dpi.o (deflated 65%)
+  adding: qrun.out/work/_dpi/auto_compile@/dpi_cpp_path.linux_x86_64 (deflated 7%)
+  adding: qrun.out/work/_dpi/dpi.tfdb (deflated 76%)
+  adding: qrun.out/work/_vmake (stored 0%)
+  adding: qrun.out/work/qrun_opt/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_lib.qdb (deflated 94%)
+  adding: qrun.out/work/qrun_opt/_lib6_0.qpg (deflated 89%)
+  adding: qrun.out/work/qrun_opt/_viscom/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_viscom/.env_list_file (deflated 63%)
+  adding: qrun.out/work/qrun_opt/_viscom/.viscom_elab_file (deflated 29%)
+  adding: qrun.out/work/qrun_opt/_viscom/_info (deflated 45%)
+  adding: qrun.out/work/qrun_opt/_lib3_0.qpg (deflated 52%)
+  adding: qrun.out/work/qrun_opt/_lib3_0.qtl (deflated 46%)
+  adding: qrun.out/work/qrun_opt/_lib2_0.qpg (deflated 36%)
+  adding: qrun.out/work/qrun_opt/_lib2_0.qtl (deflated 7%)
+  adding: qrun.out/work/qrun_opt/_lib1_0.qtl (deflated 27%)
+  adding: qrun.out/work/qrun_opt/_dpi/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_dpi/auto_compile@work#0/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_dpi/auto_compile@work#0/linux_x86_64_gcc-10.3.0/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_dpi/auto_compile@work#0/linux_x86_64_gcc-10.3.0/uvm_dpi.o (deflated 65%)
+  adding: qrun.out/work/qrun_opt/_dpi/auto_compile@work#0/dpi_cpp_path.linux_x86_64 (deflated 7%)
+  adding: qrun.out/work/qrun_opt/_dpi/dpi.tfdb (deflated 77%)
+  adding: qrun.out/work/qrun_opt/_dpi/_map (deflated 3%)
+  adding: qrun.out/work/qrun_opt/_lib5_0.qdb (deflated 81%)
+  adding: qrun.out/work/qrun_opt/href.log (deflated 65%)
+  adding: qrun.out/work/qrun_opt/_lib6_0.qdb (deflated 61%)
+  adding: qrun.out/work/qrun_opt/_lib2_0.qdb (deflated 94%)
+  adding: qrun.out/work/qrun_opt/_lib3_0.qdb (deflated 95%)
+  adding: qrun.out/work/qrun_opt/_lib1_0.qdb (deflated 97%)
+  adding: qrun.out/work/qrun_opt/_lib1_0.qpg (deflated 11%)
+  adding: qrun.out/work/qrun_opt/.viscom_cmd_file (deflated 32%)
+  adding: qrun.out/work/qrun_opt/_lib5_0.qtl (deflated 0%)
+  adding: qrun.out/work/qrun_opt/_data/ (stored 0%)
+  adding: qrun.out/work/qrun_opt/_data/exempt8Vtfb4 (deflated 68%)
+  adding: qrun.out/work/qrun_opt/_data/exemptBc1Ncz (deflated 46%)
+  adding: qrun.out/work/qrun_opt/_data/exemptfAEHRB (deflated 100%)
+  adding: qrun.out/work/qrun_opt/_lib5_0.qpg (deflated 2%)
+  adding: qrun.out/work/qrun_opt/_lib6_0.qtl (deflated 65%)
+  adding: qrun.out/work/_lib1_0.qdb (deflated 89%)
+  adding: qrun.out/work/_info (deflated 88%)
+  adding: qrun.out/work/_lib1_0.qpg (deflated 42%)
+  adding: qrun.out/work/_tempmsg/ (stored 0%)
+  adding: qrun.out/top_dus (stored 0%)
+  adding: qrun.out/sessions/ (stored 0%)
+  adding: qrun.out/sessions/work$3153097979-84595611 (deflated 81%)
+  adding: qrun.out/version (stored 0%)
+  adding: qrun.out/stats_log (deflated 53%)
+  adding: qrun.out/history.cnt (stored 0%)
+  adding: qrun.out/snapshot (stored 0%)
+  adding: dump.vcd (deflated 81%)
+  adding: apb_driver.sv (deflated 72%)
+  adding: apb_monitor.sv (deflated 72%)
+  adding: work/ (stored 0%)
+  adding: apb_fun_cov.sv (deflated 68%)
+  adding: apb_environment.sv (deflated 74%)
+  adding: apb_basic_write_read_test.sv (deflated 73%)
+  adding: apb_interface.sv (deflated 75%)
+  adding: testbench.sv (deflated 60%)
+  adding: apb_agent_config.sv (deflated 66%)
+  adding: design.sv (deflated 69%)
+  adding: apb_base_test.sv (deflated 81%)
+  adding: apb_transaction.sv (deflated 73%)
+  adding: apb_scoreboard.sv (deflated 72%)
+  adding: apb_package.sv (deflated 65%)
+  adding: ACCELLERA_OVL_VHDL_LIB/ (stored 0%)
+  adding: apb_reference_model.sv (deflated 74%)
+  adding: apb_random_sequence.sv (deflated 67%)
+  adding: run.sh (deflated 41%)
+  adding: apb_basic_write_read_sequence.sv (deflated 68%)
+  adding: apb_agent.sv (deflated 72%)
+  adding: .bash_profile (deflated 20%)
+  adding: .bash_logout (stored 0%)
+  adding: .bashrc (deflated 40%)
+[2025-03-18 14:57:34 UTC] Waiting for download...
+Done
